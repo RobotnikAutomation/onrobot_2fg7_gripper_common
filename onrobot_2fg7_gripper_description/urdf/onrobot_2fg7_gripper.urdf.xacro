@@ -171,16 +171,6 @@
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
-    <ros2_control name="GripperSystem" type="system">
-      <hardware>
-        <plugin>ur_gripper_controller/URGripperController</plugin>
-      </hardware>
-      <joint name="${prefix}_left_finger_joint">
-        <command_interface name="position"/>
-        <state_interface name="position"/>
-        <state_interface name="velocity"/> 
-      </joint>
-    </ros2_control>
 
   </xacro:macro>
 

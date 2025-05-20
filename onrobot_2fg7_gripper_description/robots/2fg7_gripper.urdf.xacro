@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot name="onrobot_2fg7_gripper"
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find onrobot_2fg7_gripper_description)/urdf/onrobot_2fg7_gripper.urdf.xacro" />
+	
+	<xacro:arg name="prefix" default="robot_"/>
+	<xacro:arg name="gripper_prefix" default="$(arg prefix)gripper"/>
+  <xacro:property name="PI" value="3.1415926535897931"/>
+
+  <!-- Gripper -->
+  <xacro:onrobot_2fg7_gripper prefix="$(arg gripper_prefix)" parent="$(arg prefix)arm_tool0">
+      <origin xyz="0 0 0.0" rpy="0 -${PI/2} -${PI/2}" />
+  </xacro:onrobot_2fg7_gripper>
+
+  <ros2_control name="GripperSystem" type="system">
+    <hardware>
+      <plugin>ur_gripper_controller/URGripperController</plugin>
+    </hardware>
+    <joint name="$(arg gripper_prefix)_left_finger_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/> 
+    </joint>
+  </ros2_control>
+</robot>
