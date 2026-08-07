@@ -135,9 +135,9 @@
     </transmission>
 
     <!--xacro:mimic_joint_plugin_gazebo parent_joint="${prefix}_left_finger_joint"
-                                     mimic_joint="${prefix}_right_finger_joint" 
-                                     has_pid="false" 
-                                     multiplier="1.0" 
+                                     mimic_joint="${prefix}_right_finger_joint"
+                                     has_pid="false"
+                                     multiplier="1.0"
                                      max_effort="10.0" /-->
 
     <link name="${prefix}_right_finger">
